@@ -1,0 +1,27 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.input-validation-error {
+    border: 1px solid rgb(240,162,162) !important;
+    background-color: rgb(240,162,162);
+}
+.row span {
+    display: none;
+}
+

@@ -1,0 +1,88 @@
+﻿@model MVCPractica2.Mapper.DTO.UserDTO.UserDTO
+@{
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "Register";
+}
+<head>
+    <link rel="stylesheet" href="~/css/Login.css" />
+    <script src="~/js/Login.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link rel=”stylesheet” href=”https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css” integrity=”sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm” crossorigin=”anonymous”>
+</head>
+
+
+
+<body>
+    <div class="container">
+        <div class="wrapper">
+            <div class="title"><span>Register</span></div>
+            <form asp-action="Register" enctype="multipart/form-data">
+                @{
+                     <div  style="position:absolute;"> @ViewBag.Message</div>
+                }
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="row">
+
+                    <div><i class="fas fa-user"></i> <input asp-for="UserName" placeholder="UserName" /></div>
+
+
+                    <span asp-validation-for="UserName"></span>
+                </div>
+
+
+                <div class="row">
+
+                    <div>
+                        <i class="fas fa-image"></i>
+
+                        <input asp-for="Image" />
+                    </div>
+                    <span asp-validation-for="Image"></span>
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div>
+                        <i class="fas fa-inbox"></i>
+                        <input asp-for="Email" placeholder="Email" />
+                    </div>
+
+                    <span asp-validation-for="Email"></span>
+                </div>
+
+                <div class="row">
+
+                    <div>
+                        <i class="fas fa-lock"></i>
+                        <input asp-for="Password" placeholder="Password" />
+                    </div>
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+
+
+
+
+                <div class="row button">
+
+                    <input type="submit" value="Register">
+                </div>
+                <a asp-action="Login">Back To Login</a>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,84 @@
+﻿@model MVCPractica2.Mapper.DTO.Simpson.SimpsonEditDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<head>
+     <link rel="stylesheet" href="~/css/Fondo.css" />
+
+    <script src="~/js/Edit.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/Edit.css" />
+</head>
+<h1>Edit</h1>
+
+<h4>Simpson</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lastname" class="control-label"></label>
+                <input asp-for="Lastname" class="form-control" />
+                <span asp-validation-for="Lastname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nationality" class="control-label"></label>
+                <input asp-for="Nationality" class="form-control" />
+                <span asp-validation-for="Nationality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Religion" class="control-label"></label>
+                <input asp-for="Religion" class="form-control" />
+                <span asp-validation-for="Religion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Breed" class="control-label"></label>
+                <input asp-for="Breed" class="form-control" />
+                <span asp-validation-for="Breed" class="text-danger"></span>
+            </div>
+            <div>
+            Image
+            <div class="form-group" Id="Image">
+             
+                <img src="~/images/@Model.ImagePath" witdh=150px height=200px />
+            </div>
+            <div class="form-group">
+              
+                <input asp-for="Image" class="form-control" id="NewImage" onchange="HideImage()" id=inputImage/>
+                <span asp-validation-for="Image" class="text-danger"></span>
+    
+            </div></div> 
+                     
+            <input type="hidden" asp-for="Id" />
+           
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

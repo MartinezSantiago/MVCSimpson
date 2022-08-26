@@ -1,0 +1,68 @@
+﻿@model MVCPractica2.Mapper.DTO.UserDTO.UserLoginDTO
+@{
+    Layout = null;
+}
+@{
+    ViewData["Title"] = "Login";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/Login.css" />
+    <script src="~/js/Login.js"></script>
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins" />
+
+
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+           
+       
+
+            <div class="title"><span>Simpsons</span></div>
+            <form asp-action="Login">
+                @{
+                   
+                                <div style="position:absolute;"> @ViewBag.Message</div>
+                 
+                }
+                <div asp-validation-summary="ModelOnly"></div>
+
+                <div class="row">
+            
+                    <div>
+                        <i class="fas fa-user"></i>
+                        <input asp-for="Email" class="form-control" placeholder="Email" id="Email" />
+                    </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+
+                </div>
+
+                <div class="row">
+                    <div>
+                        <i class="fas fa-lock"></i>
+                        <input asp-for="Password" class="form-control" placeholder="Password" id="Password" />
+                    </div>
+                    
+                    <span asp-validation-for="Password" ></span>
+                </div>
+
+
+                <div class="row button">
+                    <input type="submit" value="Login">
+                </div>
+                  <div class="signup-link">Not a member? <a asp-action="Register">Signup now</a></div>
+            </form>
+          
+        </div>
+    </div>
+
+</body>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
